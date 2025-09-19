@@ -1,0 +1,22 @@
+go to kafka home
+
+>> run zookeeper - new terminal
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+>> run kafka broker - new terminal
+bin/kafka-server-start.sh config/server.properties
+
+>> create topics -- new terminal
+bin/kafka-topics.sh --create --topic kt-orders.01 --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+bin/kafka-topics.sh --create --topic kt-executions.01 --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+
+>> list topics
+bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+
+>> produce messages 
+bin/kafka-console-producer.sh --topic kt-orders.01 --bootstrap-server localhost:9092
+
+	>> type message & press enter
+
+>> consume messages 
+bin/kafka-console-consumer.sh --topic kt-orders.01 --from-beginning --bootstrap-server localhost:9092

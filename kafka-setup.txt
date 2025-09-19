@@ -7,8 +7,13 @@ bin/zookeeper-server-start.sh config/zookeeper.properties
 bin/kafka-server-start.sh config/server.properties
 
 >> create topics -- new terminal
-bin/kafka-topics.sh --create --topic kt-orders.01 --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
-bin/kafka-topics.sh --create --topic kt-executions.01 --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+bin/kafka-topics.sh --create --topic kt-orders.02 --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+bin/kafka-topics.sh --create --topic kt-executions.02 --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+
+>> Delete topics 
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic kt-orders.02
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic kt-executions.02
+
 
 >> list topics
 bin/kafka-topics.sh --list --bootstrap-server localhost:9092
